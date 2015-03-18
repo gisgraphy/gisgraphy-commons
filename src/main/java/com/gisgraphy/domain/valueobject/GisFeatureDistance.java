@@ -114,7 +114,7 @@ public class GisFeatureDistance {
 
     private String placeType;
     
-    private Boolean oneWay;
+    private Boolean oneWay = null;
 
     private StreetType streetType;
     

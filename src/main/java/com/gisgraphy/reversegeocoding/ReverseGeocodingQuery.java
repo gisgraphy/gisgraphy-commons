@@ -214,7 +214,7 @@ public class ReverseGeocodingQuery {
      */
     @Override
     public String toString() {
-	String asString = this.getClass().getSimpleName() + "around "+point+" with "
+	String asString = this.getClass().getSimpleName() + " around "+point+" with "
 		+ getOutput() + " and " + " and callback="+this.callback;
 	return asString;
     }
