@@ -405,7 +405,7 @@ public class FulltextQuery extends AbstractGisQuery {
     }
 
 	/**
-	 * wether all the query terms are mandatory or not
+	 * whether all the query terms are mandatory or not
 	 * @return the allRequired
 	 */
 	public boolean isAllwordsRequired() {

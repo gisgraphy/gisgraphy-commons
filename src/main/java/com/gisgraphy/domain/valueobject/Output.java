@@ -178,7 +178,7 @@ public class Output {
     }
 
     /**
-     * @return wether the output must be indent, default to false
+     * @return whether the output must be indent, default to false
      * @see #withIndentation()
      */
     public boolean isIndented() {
@@ -198,7 +198,7 @@ public class Output {
     
     
     /**
-     * @return wether the housenumber should be output, default to false
+     * @return whether the housenumber should be output, default to false
      * @see #withIndentation()
      */
     public boolean isHouseNumberOutput() {
