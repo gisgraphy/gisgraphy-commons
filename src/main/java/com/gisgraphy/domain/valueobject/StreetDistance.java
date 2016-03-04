@@ -173,6 +173,16 @@ public class StreetDistance {
     
     private String isInAdm;
     
+    private String adm1Name;
+    
+    private String adm2Name;
+    
+    private String adm3Name;
+    
+    private String adm4Name;
+    
+    private String adm5Name;
+    
     private String isInZip;
     
     private String fullyQualifiedAddress;
@@ -293,6 +303,79 @@ public class StreetDistance {
 	 */
 	public String getIsInAdm() {
 		return isInAdm;
+	}
+	
+	
+
+
+	/**
+	 * @return the adm1Name
+	 */
+	public String getAdm1Name() {
+		return adm1Name;
+	}
+
+	/**
+	 * @param adm1Name the adm1Name to set
+	 */
+	public void setAdm1Name(String adm1Name) {
+		this.adm1Name = adm1Name;
+	}
+
+	/**
+	 * @return the adm2Name
+	 */
+	public String getAdm2Name() {
+		return adm2Name;
+	}
+
+	/**
+	 * @param adm2Name the adm2Name to set
+	 */
+	public void setAdm2Name(String adm2Name) {
+		this.adm2Name = adm2Name;
+	}
+
+	/**
+	 * @return the adm3Name
+	 */
+	public String getAdm3Name() {
+		return adm3Name;
+	}
+
+	/**
+	 * @param adm3Name the adm3Name to set
+	 */
+	public void setAdm3Name(String adm3Name) {
+		this.adm3Name = adm3Name;
+	}
+
+	/**
+	 * @return the adm4Name
+	 */
+	public String getAdm4Name() {
+		return adm4Name;
+	}
+
+	/**
+	 * @param adm4Name the adm4Name to set
+	 */
+	public void setAdm4Name(String adm4Name) {
+		this.adm4Name = adm4Name;
+	}
+
+	/**
+	 * @return the adm5Name
+	 */
+	public String getAdm5Name() {
+		return adm5Name;
+	}
+
+	/**
+	 * @param adm5Name the adm5Name to set
+	 */
+	public void setAdm5Name(String adm5Name) {
+		this.adm5Name = adm5Name;
 	}
 
 	/**

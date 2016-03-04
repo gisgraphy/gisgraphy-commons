@@ -46,6 +46,8 @@ import com.vividsolutions.jts.geom.Point;
  */
 public class FulltextQuery extends AbstractGisQuery {
 	
+	private static final Pattern OR_PATTERN = Pattern.compile("\\b(OR)\\b");
+	private static final Pattern AND_PATTERN = Pattern.compile("\\b(AND)\\b");
 	public static final String COUNTRY_PARAMETER = "country";
 	public static final String LANG_PARAMETER = "lang";
 	public static final String STYLE_PARAMETER = "style";
@@ -399,8 +401,8 @@ public class FulltextQuery extends AbstractGisQuery {
 	if (this.query != null){
 	   this.query =  CLEAN_QUERY_PATTERN.matcher(this.query).replaceAll(" ");
 	   this.query = COMMA_PATTERN.matcher(this.query).replaceAll(", ");
-	   this.query =  Pattern.compile("\\b(AND)\\b").matcher(this.query).replaceAll("and");
-	   this.query =  Pattern.compile("\\b(OR)\\b").matcher(this.query).replaceAll("or").trim();
+	   this.query =  AND_PATTERN.matcher(this.query).replaceAll("and");
+	   this.query =  OR_PATTERN.matcher(this.query).replaceAll("or").trim();
 	} 
     }
 

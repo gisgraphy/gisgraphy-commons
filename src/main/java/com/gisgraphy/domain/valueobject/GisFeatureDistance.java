@@ -177,6 +177,8 @@ public class GisFeatureDistance {
     private String amenity;
     
 	private String fullyQualifiedAddress;
+	
+	private Long cityId;
 
     public GisFeatureDistance() {
 	super();
@@ -960,6 +962,24 @@ public class GisFeatureDistance {
 
 	public void setLength(Double length) {
 		this.length = length;
+	}
+
+
+
+	/**
+	 * @return the cityId
+	 */
+	public Long getCityId() {
+		return cityId;
+	}
+
+
+
+	/**
+	 * @param cityId the cityId to set
+	 */
+	public void setCityId(Long cityId) {
+		this.cityId = cityId;
 	}
 	
 	/**
