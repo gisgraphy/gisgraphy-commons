@@ -222,6 +222,77 @@ public class GeolocHelperTest {
 	Assert.assertEquals("invalid length",0.001422,line.getLength(),0.001);
 	Assert.assertEquals("invalid SRID",SRID.WGS84_SRID.getSRID() ,line.getSRID());
    }
+    
+    @Test
+    public void midPoint(){
+    	 Point point1 = GeolocHelper.createPoint(1f, 2F);
+    	Point point2 = GeolocHelper.createPoint(8F, 9F);
+    	Point result;
+    	//point 1 < point 2 hn1 < hn2
+    	result = GeolocHelper.interpolatedPoint(point1, point2, 101, 108,104);
+    	Assert.assertEquals(4, result.getX(),0.0001);
+    	Assert.assertEquals(5, result.getY(),0.0001);
+
+    	//point 1 < point 2 hn1 > hn2
+    	 result = GeolocHelper.interpolatedPoint(point1, point2, 108, 101,104);
+    	 Assert.assertEquals(5, result.getX(),0.0001);
+    	 Assert.assertEquals(6, result.getY(),0.0001);
+    	 
+    	 //point1  > point2 hn1 >hn2
+    	 result = GeolocHelper.interpolatedPoint(point2, point1, 108, 101,104);
+    	 Assert.assertEquals(4, result.getX(),0.0001);
+    	 Assert.assertEquals(5, result.getY(),0.0001);
+    	 
+    	 
+    	 //point1  > point2 hn1 <hn2
+    	 result = GeolocHelper.interpolatedPoint(point2, point1, 101, 108,104);
+    	 Assert.assertEquals(5, result.getX(),0.0001);
+    	 Assert.assertEquals(6, result.getY(),0.0001);
+    	 
+    	 //out of range <
+    	//point 1 < point 2 hn1 < hn2
+     	result = GeolocHelper.interpolatedPoint(point1, point2, 101, 108,100);
+     	Assert.assertEquals(1, result.getX(),0.0001);
+     	Assert.assertEquals(2, result.getY(),0.0001);
+
+     	//point 1 < point 2 hn1 > hn2
+     	 result = GeolocHelper.interpolatedPoint(point1, point2, 108, 101,100);
+     	 Assert.assertEquals(8, result.getX(),0.0001);
+     	 Assert.assertEquals(9, result.getY(),0.0001);
+     	 
+     	 //point1  > point2 hn1 >hn2
+     	 result = GeolocHelper.interpolatedPoint(point2, point1, 108, 101,100);
+     	 Assert.assertEquals(1, result.getX(),0.0001);
+     	 Assert.assertEquals(2, result.getY(),0.0001);
+     	 
+     	 
+     	 //point1  > point2 hn1 <hn2
+     	 result = GeolocHelper.interpolatedPoint(point2, point1, 101, 108,100);
+     	 Assert.assertEquals(8, result.getX(),0.0001);
+     	 Assert.assertEquals(9, result.getY(),0.0001);
+     	 
+     	 //out of range >
+     	//point 1 < point 2 hn1 < hn2
+      	result = GeolocHelper.interpolatedPoint(point1, point2, 101, 108,110);
+      	Assert.assertEquals(8, result.getX(),0.0001);
+      	Assert.assertEquals(9, result.getY(),0.0001);
+
+      	//point 1 < point 2 hn1 > hn2
+      	 result = GeolocHelper.interpolatedPoint(point1, point2, 108, 101,110);
+      	 Assert.assertEquals(1, result.getX(),0.0001);
+      	 Assert.assertEquals(2, result.getY(),0.0001);
+      	 
+      	 //point1  > point2 hn1 >hn2
+      	 result = GeolocHelper.interpolatedPoint(point2, point1, 108, 101,110);
+      	 Assert.assertEquals(8, result.getX(),0.0001);
+      	 Assert.assertEquals(9, result.getY(),0.0001);
+      	 
+      	 
+      	 //point1  > point2 hn1 <hn2
+      	 result = GeolocHelper.interpolatedPoint(point2, point1, 101, 108,110);
+      	 Assert.assertEquals(1, result.getX(),0.0001);
+      	 Assert.assertEquals(2, result.getY(),0.0001);
+    	   }
 
     
 }

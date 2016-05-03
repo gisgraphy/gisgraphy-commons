@@ -325,6 +325,94 @@ public class GeolocHelper {
 	      return wkbBytes;
 	    }
 
+    /**
+     * calculate the middle point between two points
+     * 
+     * @param lat1
+     * @param lon1
+     * @param lat2
+     * @param lon2
+     */
+    public static Point interpolatedPoint(Point point1,Point point2, Integer hn1, Integer hn2,Integer hnTofind){
+    	if (point1 ==null || point2 == null || hn1==null || hn2==null || hnTofind == null){
+    		return null;
+    	}
+    	double minLat;
+    	double maxLat;
+    	Point startPoint;
+    	
+    	double minLng;
+    	double maxLng;
+    	int directionX = 1;//1 if we go from point1 to point 2 or -1 if the opposite
+    	int directionY = 1;//1 if we go from point1 to point 2 or -1 if the opposite
+    	
+    	int minHn;
+    	int maxHn;
+    	
+    	
+    	
+    	//set the lat variables
+    	if (point1.getY() <= point2.getY()){
+    		 minLat = point1.getY();
+    		 maxLat = point2.getY();
+    		
+    	} else {
+    		 minLat = point2.getY();
+    		 maxLat = point1.getY();
+    	}//
+    	//set the long variables
+    	if (point1.getX() <= point2.getX()){
+    		 minLng = point1.getX();
+    		 maxLng = point2.getX();
+    	} else {
+    		 minLng = point2.getX();
+    		 maxLng = point1.getX();
+    	}
+    	
+    	//set number variables
+    	if (hn1 <= hn2){
+    		 minHn = hn1;
+    		 maxHn = hn2;
+    		 startPoint =point1;
+    		 if (startPoint.getX() > point2.getX()){
+    			 directionX =-1;
+    		 }
+    		 if (startPoint.getY() > point2.getY()){
+    			 directionY =-1;
+    		 }
+    	} else {
+    		 minHn = hn2;
+    		 maxHn = hn1;
+    		 startPoint =point2;
+    		 if (startPoint.getX() > point1.getX()){
+    			 directionX =-1;
+    		 }
+    		 if (startPoint.getY() > point1.getY()){
+    			 directionY =-1;
+    		 }
+    	}
+    	
+    	if (hnTofind > maxHn || hnTofind < minHn ){ //house to find is not in the range between hn1 and hn2, we return the nearest
+    		int distToHn1 = Math.abs(hn1-hnTofind);
+    		int distToHn2 = Math.abs(hn2 - hnTofind);
+    		if (distToHn1 <= distToHn2){
+    			return point1;
+    		} else {
+    			return point2;
+    		}
+    	}
+    	 double proportional = new Float(hnTofind-minHn)/(maxHn-minHn);
+    	 double newLat = startPoint.getY() + (proportional*(maxLat -minLat)*directionX);
+    	 double newLng = startPoint.getX() + proportional*(maxLng -minLng)*directionY;
+    	
+    	return createPoint(newLng, newLat);
+    	
+    	
+    }
+
+    
+   
+
 
 
 /**
