@@ -22,9 +22,7 @@
  *******************************************************************************/
 package com.gisgraphy.domain.valueobject;
 
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -65,10 +63,19 @@ public class GisFeatureDistance {
 
     @XmlTransient
     private Point location;
+    
+    @XmlTransient
+    private Point adminCentreLocation;
 
     private Double distance;
 
     private String name;
+    
+    private String label;
+    
+    private String labelPostal;
+    
+    private Set<String> alternateLabels;
 
     private String adm1Code;
 
@@ -176,11 +183,110 @@ public class GisFeatureDistance {
     
     private String amenity;
     
-	private String fullyQualifiedAddress;
-	
+	private String fullyQualifiedName;
+
 	private Long cityId;
 
-    public GisFeatureDistance() {
+	private Integer lanes;
+
+	private Boolean toll;
+
+	private String surface;
+
+	private String maxSpeed;
+	
+	private SpeedMode speedMode;
+
+	/**
+	 * @return the speedMode
+	 */
+	public SpeedMode getSpeedMode() {
+		return speedMode;
+	}
+
+
+
+	private String maxSpeedBackward;
+
+	private Integer azimuthStart;
+
+	private Integer azimuthEnd;
+	    
+	   
+
+    /**
+		 * @return the adminCentreLocation
+		 */
+		public Point getAdminCentreLocation() {
+			return adminCentreLocation;
+		}
+
+
+
+		/**
+		 * @return the lanes
+		 */
+		public Integer getLanes() {
+			return lanes;
+		}
+
+
+
+		/**
+		 * @return the toll
+		 */
+		public Boolean isToll() {
+			return toll;
+		}
+
+
+
+		/**
+		 * @return the surface
+		 */
+		public String getSurface() {
+			return surface;
+		}
+
+
+
+		/**
+		 * @return the maxSpeed
+		 */
+		public String getMaxSpeed() {
+			return maxSpeed;
+		}
+
+
+
+		/**
+		 * @return the maxSpeedBackward
+		 */
+		public String getMaxSpeedBackward() {
+			return maxSpeedBackward;
+		}
+
+
+
+		/**
+		 * @return the azimuthStart
+		 */
+		public Integer getAzimuthStart() {
+			return azimuthStart;
+		}
+
+
+
+		/**
+		 * @return the azimuthEnd
+		 */
+		public Integer getAzimuthEnd() {
+			return azimuthEnd;
+		}
+
+
+
+	public GisFeatureDistance() {
 	super();
     }
 
@@ -201,6 +307,123 @@ public class GisFeatureDistance {
 	return this.name;
     }
 
+    
+    /**
+  	 * @return the label that represent the street
+  	 */
+      public String getLabel() {
+      	return label;
+      }
+
+
+      /**
+	 * @param label the label to set
+	 */
+	public void setLabel(String label) {
+		this.label = label;
+	}
+
+
+
+	/**
+	 * @param labelPostal the labelPostal to set
+	 */
+	public void setLabelPostal(String labelPostal) {
+		this.labelPostal = labelPostal;
+	}
+
+
+
+	/**
+	 * @param alternateLabels the alternateLabels to set
+	 */
+	public void setAlternateLabels(Set<String> alternateLabels) {
+		this.alternateLabels = alternateLabels;
+	}
+
+
+
+	/**
+	 * @param lanes the lanes to set
+	 */
+	public void setLanes(Integer lanes) {
+		this.lanes = lanes;
+	}
+
+
+
+	/**
+	 * @param toll the toll to set
+	 */
+	public void setToll(Boolean toll) {
+		this.toll = toll;
+	}
+
+
+
+	/**
+	 * @param surface the surface to set
+	 */
+	public void setSurface(String surface) {
+		this.surface = surface;
+	}
+
+
+
+	/**
+	 * @param maxSpeed the maxSpeed to set
+	 */
+	public void setMaxSpeed(String maxSpeed) {
+		this.maxSpeed = maxSpeed;
+	}
+
+
+
+	/**
+	 * @param maxSpeedBackward the maxSpeedBackward to set
+	 */
+	public void setMaxSpeedBackward(String maxSpeedBackward) {
+		this.maxSpeedBackward = maxSpeedBackward;
+	}
+
+
+
+	/**
+	 * @param azimuthStart the azimuthStart to set
+	 */
+	public void setAzimuthStart(Integer azimuthStart) {
+		this.azimuthStart = azimuthStart;
+	}
+
+
+
+	/**
+	 * @param azimuthEnd the azimuthEnd to set
+	 */
+	public void setAzimuthEnd(Integer azimuthEnd) {
+		this.azimuthEnd = azimuthEnd;
+	}
+
+
+
+	/**
+       * @return the label that represent the Postal address
+       */
+      public String getLabelPostal() {
+      	return labelPostal;
+      }
+
+  	/**
+  	 * @return the alternate Labels of the streets
+  	 */
+  	public Set<String> getAlternateLabels() {
+  		return alternateLabels;
+  	}
+
+    
+    
+    
+    
     /**
      * @return the location
      */
@@ -631,12 +854,12 @@ public class GisFeatureDistance {
 	}
 
 
-	public String getFullyQualifiedAddress() {
-		return fullyQualifiedAddress;
+	public String getFullyQualifiedName() {
+		return fullyQualifiedName;
 	}
 
-	public void setFullyQualifiedAddress(String fullyQualifiedAddress) {
-		this.fullyQualifiedAddress = fullyQualifiedAddress;
+	public void setFullyQualifiedName(String fullyQualifiedName) {
+		this.fullyQualifiedName = fullyQualifiedName;
 	}
 
 
@@ -648,6 +871,10 @@ public class GisFeatureDistance {
 
 	public void setLocation(Point location) {
 	    this.location = location;
+	}
+	
+	public void setAdminCentreLocation(Point adminCentreLocation) {
+	    this.adminCentreLocation = adminCentreLocation;
 	}
 
 

@@ -59,6 +59,7 @@ public class FulltextQuery extends AbstractGisQuery {
 	public static final String LONG_PARAMETER = "lng";
 	public static final String RADIUS_PARAMETER = "radius";
 	public static final String SUGGEST_PARAMETER = "suggest";
+	public static final String FUZZY_PARAMETER = "fuzzy";
 	
 	public final static int REGEXP_CASESENSITIVE_FLAG =  Pattern.UNICODE_CASE;
 	private static final Pattern CLEAN_QUERY_PATTERN = Pattern.compile("([\\{\\}\\(\\)\\=\\!\"\'\\\\]+)");
@@ -169,6 +170,8 @@ public class FulltextQuery extends AbstractGisQuery {
     private boolean suggest = false;
     
     private boolean spellchecking = SpellCheckerConfig.activeByDefault;
+    
+    private boolean fuzzy = false;
 
    
 
@@ -292,6 +295,7 @@ public class FulltextQuery extends AbstractGisQuery {
     public String toString() {
     	String allwordsRequiredString = allWordsRequired?" with all words required ":" without all words required ";
     	String autosuggestionString = isSuggest()?" for auto suggestion ":" ";
+    	 autosuggestionString = isFuzzy()?" in fuzzy mode ":" ";
 		String asString = "FullTextQuery '" + this.query + "' "+allwordsRequiredString+autosuggestionString;
 		if (point!=null){
 		    asString+="with apikey="+getApikey()+" around (lat='"
@@ -439,6 +443,21 @@ public class FulltextQuery extends AbstractGisQuery {
 	 */
 	public FulltextQuery withSuggest(boolean suggest) {
 		this.suggest = suggest;
+		return this;
+	}
+	
+	/**
+	 * @return true if the fulltext query is in fuzzy mode
+	 */
+	public boolean isFuzzy() {
+		return fuzzy;
+	}
+
+	/**
+	 * @param suggest whether the fulltext query is fuzzy
+	 */
+	public FulltextQuery withFuzzy(boolean fuzzy) {
+		this.fuzzy = fuzzy;
 		return this;
 	}
     

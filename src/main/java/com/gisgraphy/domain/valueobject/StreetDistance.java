@@ -22,6 +22,7 @@
  *******************************************************************************/
 package com.gisgraphy.domain.valueobject;
 
+import java.util.Set;
 import java.util.SortedSet;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -133,10 +134,48 @@ public class StreetDistance {
 	    return this;
 	}
 	
-	public StreetDistanceBuilder withFullyQualifiedAddress(String fullyQualifiedAddress) {
-		streetDistance.fullyQualifiedAddress = fullyQualifiedAddress;
+
+	
+	public StreetDistanceBuilder withLanes(Integer lanes) {
+		streetDistance.lanes = lanes;
 	    return this;
 	}
+	
+	public StreetDistanceBuilder withToll(Boolean toll) {
+		streetDistance.toll = toll;
+	    return this;
+	}
+	
+	public StreetDistanceBuilder withSurface(String surface) {
+		streetDistance.surface = surface;
+	    return this;
+	}
+	
+	public StreetDistanceBuilder withMaxSpeed(String maxSpeed) {
+		streetDistance.maxSpeed = maxSpeed;
+	    return this;
+	}
+	
+	public StreetDistanceBuilder withMaxSpeedBackward(String maxSpeedBackward) {
+		streetDistance.maxSpeedBackward = maxSpeedBackward;
+	    return this;
+	}
+	
+	public StreetDistanceBuilder withAzimuthStart(Integer azimuthStart) {
+		streetDistance.azimuthStart = azimuthStart;
+	    return this;
+	}
+	
+	public StreetDistanceBuilder withAzimuthEnd(Integer azimuthEnd) {
+		streetDistance.azimuthEnd = azimuthEnd;
+	    return this;
+	}
+	
+	public StreetDistanceBuilder withFullyQualifiedName(String fullyQualifiedName) {
+		streetDistance.fullyQualifiedName = fullyQualifiedName;
+	    return this;
+	}
+	
 
     }
 
@@ -185,11 +224,106 @@ public class StreetDistance {
     
     private String isInZip;
     
-    private String fullyQualifiedAddress;
+    private String fullyQualifiedName;
+    
+    private Integer lanes;
+    
+    private Boolean toll;
+    
+    private String surface;
+    
+    private String maxSpeed;
+    
+    private SpeedMode speedMode;
+    
+
+	private String maxSpeedBackward;
+    
+    private Integer azimuthStart;
+    
+    private Integer azimuthEnd;
+    
+    private String label;
+    
+    private String labelPostal;
+    
+    private Set<String> alternateLabels;
+    
+   
     
    // private SortedSet<HouseNumberDto> housenumbers;
 
    
+
+	/**
+	 * @return the label
+	 */
+	public String getLabel() {
+		return label;
+	}
+
+	/**
+	 * @return the labelPostal
+	 */
+	public String getLabelPostal() {
+		return labelPostal;
+	}
+
+	/**
+	 * @return the alternateLabels
+	 */
+	public Set<String> getAlternateLabels() {
+		return alternateLabels;
+	}
+
+	/**
+	 * @return the lanes
+	 */
+	public Integer getLanes() {
+		return lanes;
+	}
+
+	/**
+	 * @return the toll
+	 */
+	public Boolean getToll() {
+		return toll;
+	}
+
+	/**
+	 * @return the surface
+	 */
+	public String getSurface() {
+		return surface;
+	}
+
+	/**
+	 * @return the maxSpeed
+	 */
+	public String getMaxSpeed() {
+		return maxSpeed;
+	}
+
+	/**
+	 * @return the maxSpeedBackward
+	 */
+	public String getMaxSpeedBackward() {
+		return maxSpeedBackward;
+	}
+
+	/**
+	 * @return the azimuthStart
+	 */
+	public Integer getAzimuthStart() {
+		return azimuthStart;
+	}
+
+	/**
+	 * @return the azimuthEnd
+	 */
+	public Integer getAzimuthEnd() {
+		return azimuthEnd;
+	}
 
 	/**
      * Default Constructor needed by cglib
@@ -388,13 +522,20 @@ public class StreetDistance {
 	/**
 	 * @return the fullyQualifiedAddress
 	 */
-	public String getFullyQualifiedAddress() {
-		return fullyQualifiedAddress;
+	public String getFullyQualifiedName() {
+		return fullyQualifiedName;
 	}
 	
 	 public String getOpenstreetmapUrl(){
 	    	return URLUtils.createOpenstreetmapMapUrlForStreet(location);
 	 }
+	 
+	 /**
+		 * @return the speedMode
+		 */
+		public SpeedMode getSpeedMode() {
+			return speedMode;
+		}
 
 	/*public SortedSet<HouseNumberDto> getHousenumbers() {
 		return housenumbers;

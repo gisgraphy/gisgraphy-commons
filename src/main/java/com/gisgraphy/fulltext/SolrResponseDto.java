@@ -122,11 +122,98 @@ public class SolrResponseDto {
     public String is_in_place;
     public String is_in_adm;
     public Set<String> is_in_zip;
-    public String fully_qualified_address;
     public List<HouseNumberDto> house_numbers;
     public Boolean municipality;
     public String amenity;
+    public String label;
+    public String label_postal;
+    /**
+	 * @return the label_postal
+	 */
+	public String getLabel_postal() {
+		return label_postal;
+	}
+
+
+	public Set<String> alternate_labels;
+    public Integer lanes;
+    public Boolean toll;
+    public String surface;
+    public String maxSpeed;
+    public String speedMode;
    
+
+
+	public String maxSpeed_backward;
+    public Integer azimuth_start;
+    public Integer azimuth_end;
+    
+    
+    /**
+	 * @return the label
+	 */
+	public String getLabel() {
+		return label;
+	}
+
+	/**
+	 * @return the alternate_labels
+	 */
+	public Set<String> getAlternate_labels() {
+		return alternate_labels;
+	}
+
+	/**
+	 * @return the lanes
+	 */
+	public Integer getLanes() {
+		return lanes;
+	}
+
+	/**
+	 * @return the toll
+	 */
+	public Boolean isToll() {
+		return toll;
+	}
+
+	/**
+	 * @return the surface
+	 */
+	public String getSurface() {
+		return surface;
+	}
+
+	/**
+	 * @return the maxSpeed
+	 */
+	public String getMaxSpeed() {
+		return maxSpeed;
+	}
+
+	/**
+	 * @return the maxSpeed_backward
+	 */
+	public String getMaxSpeed_backward() {
+		return maxSpeed_backward;
+	}
+
+	/**
+	 * @return the azimuth_start
+	 */
+	public Integer getAzimuth_start() {
+		return azimuth_start;
+	}
+
+	/**
+	 * @return the azimuth_end
+	 */
+	public Integer getAzimuth_end() {
+		return azimuth_end;
+	}
+
+
+	
 
 	/**
      * @return the name
@@ -155,6 +242,13 @@ public class SolrResponseDto {
     public Long getFeature_id() {
 	return feature_id;
     }
+    
+    /**
+   	 * @return the speedMode
+   	 */
+   	public String getSpeedMode() {
+   		return speedMode;
+   	}
 
     /**
      * @return the feature_class
@@ -521,13 +615,6 @@ public class SolrResponseDto {
 		return is_in_zip;
 	}
 
-	/**
-	 * @return the fully_qualified_address
-	 */
-	public String getFully_qualified_address() {
-		return fully_qualified_address;
-	}
-
 	//  @Transient
     public Double getDistance() {
 	return distance;
@@ -598,6 +685,9 @@ public class SolrResponseDto {
 		return score;
 	}
 
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
 	@Override
 	public String toString() {
 		final int maxLen = 10;
@@ -907,11 +997,6 @@ public class SolrResponseDto {
 			builder.append(toString(is_in_zip, maxLen));
 			builder.append(", ");
 		}
-		if (fully_qualified_address != null) {
-			builder.append("fully_qualified_address=");
-			builder.append(fully_qualified_address);
-			builder.append(", ");
-		}
 		if (house_numbers != null) {
 			builder.append("house_numbers=");
 			builder.append(toString(house_numbers, maxLen));
@@ -925,6 +1010,56 @@ public class SolrResponseDto {
 		if (amenity != null) {
 			builder.append("amenity=");
 			builder.append(amenity);
+			builder.append(", ");
+		}
+		if (label != null) {
+			builder.append("label=");
+			builder.append(label);
+			builder.append(", ");
+		}
+		if (label_postal != null) {
+			builder.append("label_postal=");
+			builder.append(label_postal);
+			builder.append(", ");
+		}
+		if (alternate_labels != null) {
+			builder.append("alternate_labels=");
+			builder.append(toString(alternate_labels, maxLen));
+			builder.append(", ");
+		}
+		if (lanes != null) {
+			builder.append("lanes=");
+			builder.append(lanes);
+			builder.append(", ");
+		}
+		if (toll != null) {
+			builder.append("toll=");
+			builder.append(toll);
+			builder.append(", ");
+		}
+		if (surface != null) {
+			builder.append("surface=");
+			builder.append(surface);
+			builder.append(", ");
+		}
+		if (maxSpeed != null) {
+			builder.append("maxSpeed=");
+			builder.append(maxSpeed);
+			builder.append(", ");
+		}
+		if (maxSpeed_backward != null) {
+			builder.append("maxSpeed_backward=");
+			builder.append(maxSpeed_backward);
+			builder.append(", ");
+		}
+		if (azimuth_start != null) {
+			builder.append("azimuth_start=");
+			builder.append(azimuth_start);
+			builder.append(", ");
+		}
+		if (azimuth_end != null) {
+			builder.append("azimuth_end=");
+			builder.append(azimuth_end);
 		}
 		builder.append("]");
 		return builder.toString();
