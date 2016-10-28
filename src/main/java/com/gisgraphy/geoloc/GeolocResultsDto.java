@@ -52,7 +52,12 @@ public class GeolocResultsDto {
 
     private Integer numFound = 0;
     private Long QTime = null;
-    private List<GisFeatureDistance> result;
+    private String attributions = Constants.ATTRIBUTIONS;
+   
+
+
+
+	private List<GisFeatureDistance> result;
 
 
     /**
@@ -100,5 +105,12 @@ public class GeolocResultsDto {
 	return QTime;
     }
 
+    
+    /**
+   	 * @return the attributions
+   	 */
+   	public String getAttributions() {
+   		return attributions;
+   	}
    
 }

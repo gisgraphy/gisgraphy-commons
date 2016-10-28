@@ -49,8 +49,12 @@ public class StreetSearchResultsDto {
     private String query = null;
 
     private List<StreetDistance> result;
+    
+    private String attributions = Constants.ATTRIBUTIONS;
 
-    /**
+    
+
+	/**
      * @param result
      *                The {@link StreetDistance}'s Collection
      * @param QTime
@@ -102,6 +106,13 @@ public class StreetSearchResultsDto {
     public String getQuery() {
         return query;
     }
+    
+    /**
+	 * @return the attributions
+	 */
+	public String getAttributions() {
+		return attributions;
+	}
 
    
 

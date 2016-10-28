@@ -32,6 +32,11 @@ import com.gisgraphy.serializer.common.OutputFormat;
  *         Constants
  */
 public class Constants {
+	
+	/**
+	 * Attribution pages
+	 */
+	 public static final String ATTRIBUTIONS = "http://www.gisgraphy.com/attributions.html";
 
     /**
      * Default charset
