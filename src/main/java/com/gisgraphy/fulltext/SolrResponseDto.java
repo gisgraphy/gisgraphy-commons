@@ -71,8 +71,12 @@ public class SolrResponseDto {
     public String adm2_code;
     public String adm3_code;
     public String adm4_code;
+    public String adm5_code;
     
-    //country specific fields
+   
+
+
+	//country specific fields
     public String continent;
     public String currency_code;
     public String currency_name;
@@ -102,7 +106,11 @@ public class SolrResponseDto {
 
     public String adm3_name;
     public String adm4_name;
-    public Set<String> zipcodes;
+    public String adm5_name;
+   
+
+
+	public Set<String> zipcodes;
     public String country_code;
 
     public String country_name;
@@ -354,6 +362,13 @@ public class SolrResponseDto {
     public String getAdm4_code() {
 	return adm4_code;
     }
+    
+    /**
+   	 * @return the adm5_code
+   	 */
+   	public String getAdm5_code() {
+   		return adm5_code;
+   	}
 
     /**
      * @return the adm1_name
@@ -410,6 +425,13 @@ public class SolrResponseDto {
     public String getAdm4_name() {
 	return adm4_name;
     }
+    
+    /**
+   	 * @return the adm5_name
+   	 */
+   	public String getAdm5_name() {
+   		return adm5_name;
+   	}
 
     /**
      * @return the zipcode
