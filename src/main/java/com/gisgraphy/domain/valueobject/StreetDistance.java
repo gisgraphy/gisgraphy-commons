@@ -249,11 +249,20 @@ public class StreetDistance {
     
     private Set<String> alternateLabels;
     
+    private String zipCode;
+    
    
     
    // private SortedSet<HouseNumberDto> housenumbers;
 
    
+
+	/**
+	 * @return the zipCode
+	 */
+	public String getZipCode() {
+		return zipCode;
+	}
 
 	/**
 	 * @return the label

@@ -196,6 +196,12 @@ public class GisFeatureDistance {
 	private String maxSpeed;
 	
 	private SpeedMode speedMode;
+	
+	private String zipCode;
+
+	
+
+
 
 	/**
 	 * @return the speedMode
@@ -1207,6 +1213,22 @@ public class GisFeatureDistance {
 	 */
 	public void setCityId(Long cityId) {
 		this.cityId = cityId;
+	}
+	
+	/**
+	 * @return the zipCode
+	 */
+	public String getZipCode() {
+		return zipCode;
+	}
+
+
+
+	/**
+	 * @param zipCode the zipCode to set
+	 */
+	public void setZipCode(String zipCode) {
+		this.zipCode = zipCode;
 	}
 	
 	/**

@@ -157,7 +157,8 @@ public class SolrResponseDto {
     public Integer azimuth_end;
     
     
-    /**
+   
+	/**
 	 * @return the label
 	 */
 	public String getLabel() {
@@ -299,6 +300,9 @@ public class SolrResponseDto {
     public String getTimezone() {
 	return timezone;
     }
+
+    
+   
 
     /**
      * @return the fully_qualified_name
