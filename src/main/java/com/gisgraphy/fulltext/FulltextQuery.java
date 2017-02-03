@@ -60,6 +60,7 @@ public class FulltextQuery extends AbstractGisQuery {
 	public static final String RADIUS_PARAMETER = "radius";
 	public static final String SUGGEST_PARAMETER = "suggest";
 	public static final String FUZZY_PARAMETER = "fuzzy";
+	public static final String EXACT_NAME_PARAMETER = "exactname";
 	
 	public final static int REGEXP_CASESENSITIVE_FLAG =  Pattern.UNICODE_CASE;
 	private static final Pattern CLEAN_QUERY_PATTERN = Pattern.compile("([\\{\\}\\(\\)\\=\\!\"\'\\\\]+)");
@@ -79,6 +80,8 @@ public class FulltextQuery extends AbstractGisQuery {
     public static final double DEFAULT_RADIUS = 10000;
 
     protected Point point;
+    protected boolean exactName = false;
+    
     private double radius = DEFAULT_RADIUS;
     
     /**
@@ -327,6 +330,19 @@ public class FulltextQuery extends AbstractGisQuery {
     public FulltextQuery withSpellChecking(){
     	this.spellchecking = true;
     	return this;
+    }
+    
+    /**
+     *  Enable the spellchecking for this query
+     * @return The current query to chain methods
+     */
+    public FulltextQuery withExactName(){
+    	this.exactName = true;
+    	return this;
+    }
+    
+    public boolean isExactName(){
+    	return this.exactName;
     }
     
     /**
