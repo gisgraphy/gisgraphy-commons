@@ -51,6 +51,13 @@ public class HouseNumberDeserializerTest {
 		Assert.assertEquals("2", houseNumber2.getNumber());
 		Assert.assertTrue(houseNumber2.getLongitude().toString().startsWith("9.7"));
 		Assert.assertTrue( houseNumber2.getLatitude().toString().startsWith("10.4"));
+		
+		HouseNumberDto houseNumber3 = serializer.deserialize("7:-1.5681417000000002,47.2181313");
+		Assert.assertEquals("7", houseNumber3.getNumber());
+		Assert.assertTrue(houseNumber3.getLongitude().toString().startsWith("-1.568141700000000"));
+		Assert.assertTrue( houseNumber3.getLatitude().toString().startsWith("47.2181313"));
+		
+		
 	}
 	
 	@Test

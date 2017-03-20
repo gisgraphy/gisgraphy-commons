@@ -102,8 +102,28 @@ public class GisFeatureDistance {
     private String countryCode;
 
     private Integer elevation;
+    
+    private String streetRef;
 
-    private String featureClass;
+    /**
+	 * @return the streetRef
+	 */
+	public String getStreetRef() {
+		return streetRef;
+	}
+
+
+
+	/**
+	 * @param streetRef the streetRef to set
+	 */
+	public void setStreetRef(String streetRef) {
+		this.streetRef = streetRef;
+	}
+
+
+
+	private String featureClass;
 
     private String featureCode;
 

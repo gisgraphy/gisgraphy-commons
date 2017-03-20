@@ -22,7 +22,7 @@ public class HouseNumberDeserializer {
 	public static final String LAT_LON_SEPARATOR = ",";
 	public static final String HOUSE_NUMBERS_SEPARATOR = "  ";
 	public static final String HOUSENUMBER_AND_LOCATION_SEPARATOR = ":";
-	private static final Pattern ASSOCIATED_HOUSE_NUMBER_REGEXP = Pattern.compile("(\\w+)"+HOUSENUMBER_AND_LOCATION_SEPARATOR+"([0-9\\.]+)"+LAT_LON_SEPARATOR+"([0-9\\.]+)(?:\\s\\s)?");
+	private static final Pattern ASSOCIATED_HOUSE_NUMBER_REGEXP = Pattern.compile("(\\w+)"+HOUSENUMBER_AND_LOCATION_SEPARATOR+"([\\-0-9\\.]+)"+LAT_LON_SEPARATOR+"([\\-0-9\\.]+)(?:\\s\\s)?");
 
 	
 	

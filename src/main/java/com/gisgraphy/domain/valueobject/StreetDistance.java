@@ -95,6 +95,11 @@ public class StreetDistance {
 	    streetDistance.streetType = streetType;
 	    return this;
 	}
+	
+	public StreetDistanceBuilder withStreetRef(String streetRef) {
+	    streetDistance.streetRef = streetRef;
+	    return this;
+	}
 
 	public StreetDistanceBuilder withOneWay(Boolean oneWay) {
 	    streetDistance.oneWay = oneWay;
@@ -195,6 +200,8 @@ public class StreetDistance {
     private Long openstreetmapId;
 
     private StreetType streetType;
+    
+    private String streetRef;
 
     private Boolean oneWay;
 
@@ -202,7 +209,14 @@ public class StreetDistance {
 
     private Double length;
 
-    private Double lat;
+    /**
+	 * @return the streetRef
+	 */
+	public String getStreetRef() {
+		return streetRef;
+	}
+
+	private Double lat;
 
     private Double lng;
     

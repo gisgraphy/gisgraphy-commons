@@ -65,9 +65,28 @@ public class SolrResponseDto {
     public String fully_qualified_name;
     public String placetype;
     public Integer population;
+    
     public Double lat;
     public Double lng;
-    public String adm1_code;
+    public Double lat_admin_centre;
+    public Double lng_admin_centre;
+    
+    /**
+	 * @return the lat_admin_centre
+	 */
+	public Double getLat_admin_centre() {
+		return lat_admin_centre;
+	}
+
+	/**
+	 * @return the lng_admin_centre
+	 */
+	public Double getLng_admin_centre() {
+		return lng_admin_centre;
+	}
+
+
+	public String adm1_code;
     public String adm2_code;
     public String adm3_code;
     public String adm4_code;
@@ -125,6 +144,7 @@ public class SolrResponseDto {
     public Boolean one_way;
     public Double length;
     public String  street_type;
+    public String  street_ref;
     public Long openstreetmap_id;
     public String is_in;
     public String is_in_place;
@@ -602,6 +622,10 @@ public class SolrResponseDto {
 
     public String getStreet_type() {
         return street_type;
+    }
+    
+    public String getStreet_ref() {
+        return street_ref;
     }
 
     /**

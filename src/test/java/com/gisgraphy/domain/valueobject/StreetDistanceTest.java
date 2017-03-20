@@ -46,6 +46,7 @@ public class StreetDistanceTest {
 	.withName("name")
 	.withOneWay(true)
 	.withIsIn("los angeles")
+	.withStreetRef("A1")
 	.withStreetType(StreetType.FOOTWAY).build();
 
 	Assert.assertEquals("countryCode Should be upperCased","FR",streetDistance.getCountryCode());
@@ -54,6 +55,7 @@ public class StreetDistanceTest {
 	Assert.assertEquals(point,streetDistance.getLocation());
 	Assert.assertEquals("name",streetDistance.getName());
 	Assert.assertEquals("los angeles",streetDistance.getIsIn());
+	Assert.assertEquals("A1",streetDistance.getStreetRef());
 	Assert.assertEquals(Boolean.TRUE,streetDistance.getOneWay());
 	Assert.assertEquals(StreetType.FOOTWAY,streetDistance.getStreetType());
 	Assert.assertEquals("calculated fields should be process",45F,streetDistance.getLng().floatValue());
