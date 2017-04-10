@@ -240,7 +240,7 @@ public class GeolocHelper {
      *                the central longitude for the polygon
      * @param distance
      *                the distance in meters from the point to create the
-     *                polygon
+     *                polygon, the size lenth of the polygon will be 2*distance (the point will be in the middle)
      * @return a polygon / square with a side of distance , with the point
      *         (long,lat) as centroid throws {@link RuntimeException} if an
      *         error occured thros {@link IllegalArgumentException} if lat, long
