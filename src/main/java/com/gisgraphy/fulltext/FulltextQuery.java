@@ -65,7 +65,7 @@ public class FulltextQuery extends AbstractGisQuery {
 	private static final Pattern CLEAN_QUERY_PATTERN = Pattern.compile("([\\{\\}\\(\\)\\=\\!\"\'\\\\]+)");
 	private static final Pattern COMMA_PATTERN = Pattern.compile("([\\,]+)");
 
-	public static final int DEFAULT_MAX_RESULTS = 20;
+	public static final int DEFAULT_MAX_RESULTS = 50;
 	
     public final static int QUERY_MAX_LENGTH = 200;
     
