@@ -265,6 +265,8 @@ public class StreetDistance {
     
     private String zipCode;
     
+    private GISSource source;
+    
    
     
    // private SortedSet<HouseNumberDto> housenumbers;
@@ -297,6 +299,13 @@ public class StreetDistance {
 	 */
 	public Set<String> getAlternateLabels() {
 		return alternateLabels;
+	}
+
+	/**
+	 * @return the source
+	 */
+	public GISSource getSource() {
+		return source;
 	}
 
 	/**

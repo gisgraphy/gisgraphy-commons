@@ -132,6 +132,9 @@ public class PaginationTest {
 	// with numberOfResults = limit
 	assertEquals(10, Pagination.paginate().from(4).to(13)
 		.limitNumberOfResults(10).getMaxNumberOfResults());
+	
+	assertEquals(11, Pagination.paginate().from(4).to(13)
+			.limitNumberOfResults(11).getMaxNumberOfResults());
 
     }
 
