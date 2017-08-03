@@ -204,9 +204,32 @@ public class GeolocHelper {
 		    point2.getCoordinate(), DefaultGeographicCRS.WGS84);
 	    return distance;
 	    // return SI.METER.getConverterTo(targetUnit).convert(distance);
-	} catch (TransformException e) {
-	    throw new RuntimeException(e);
+	} catch (Exception e) {
+		return distanceByMathematic(point1, point2);
+	  //  throw new RuntimeException(e);
 	}
+    }
+    
+     static double distanceByMathematic(Point point1, Point point2) {
+
+        final int R = 6359; // Radius of the earth
+        double lat1 = point1.getY();
+        double lat2 = point2.getY();
+        double lon1 = point1.getX();
+        double lon2 = point2.getX();
+        double latDistance = Math.toRadians(lat2 - lat1);
+        double lonDistance = Math.toRadians(lon2 - lon1);
+        double a = Math.sin(latDistance / 2) * Math.sin(latDistance / 2)
+                + Math.cos(Math.toRadians(lat1)) * Math.cos(Math.toRadians(lat2))
+                * Math.sin(lonDistance / 2) * Math.sin(lonDistance / 2);
+        double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+        double distance = R * c * 1000; // convert to meters
+
+        double height = 0;
+
+        distance = Math.pow(distance, 2) + Math.pow(height, 2);
+
+        return Math.sqrt(distance);
     }
 
 

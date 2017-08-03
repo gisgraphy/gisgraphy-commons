@@ -87,6 +87,29 @@ public class GeolocHelperTest {
 	Assert.assertEquals(Math.round(GeolocHelper.distance(point1, point2)), Math
 		.round(GeolocHelper.distance(point2, point1)));
 	Assert.assertEquals(22313, Math.round(GeolocHelper.distance(point1, point2)));
+	
+	
+	point1 = GeolocHelper.createPoint(113.636667,-46.071667); //-46.071667 113.636667
+	point2 = GeolocHelper.createPoint(-65.571667, 47.003333); // 47.003333 -65.571667
+	//GeolocHelper.distance(point1, point2);
+	Assert.assertEquals(19857619,new Double(GeolocHelper.distance(point1, point2)).intValue());
+    }
+
+    
+    @Test
+    public void distance2ShouldReturnCorrectDistance() {
+	Point point1 = GeolocHelper.createPoint(48.867F, 2.333F);
+
+	Point point2 = GeolocHelper.createPoint(49.017F, 2.467F);
+
+	Assert.assertEquals(Math.round(GeolocHelper.distanceByMathematic(point1, point2)), Math
+		.round(GeolocHelper.distanceByMathematic(point2, point1)));
+	Assert.assertEquals(22312, Math.round(GeolocHelper.distanceByMathematic(point1, point2)));
+	
+	
+	point1 = GeolocHelper.createPoint(113.636667,-46.071667); //-46.071667 113.636667
+	point2 = GeolocHelper.createPoint(-65.571667, 47.003333); // 47.003333 -65.571667
+	Assert.assertEquals(19857619,new Double(GeolocHelper.distanceByMathematic(point1, point2)).intValue());
     }
 
 
