@@ -6,7 +6,7 @@
 	
 	<groupId>com.gisgraphy</groupId>
 	<artifactId>gisgraphy-commons</artifactId>
-	<version>4.0-beta1</version>
+	<version>5.0-beta1</version>
 	<packaging>jar</packaging>
 
 	<name>gisgraphy-commons</name>
