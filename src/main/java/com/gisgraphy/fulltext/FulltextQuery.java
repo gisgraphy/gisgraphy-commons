@@ -62,7 +62,7 @@ public class FulltextQuery extends AbstractGisQuery {
 	public static final String FUZZY_PARAMETER = "fuzzy";
 	
 	public final static int REGEXP_CASESENSITIVE_FLAG =  Pattern.UNICODE_CASE;
-	private static final Pattern CLEAN_QUERY_PATTERN = Pattern.compile("([\\{\\}\\(\\)\\=\\!\"\'\\\\]+)");
+	private static final Pattern CLEAN_QUERY_PATTERN = Pattern.compile("([\\*\\{\\}\\(\\)\\=\\!\"\'\\\\]+)");
 	private static final Pattern COMMA_PATTERN = Pattern.compile("([\\,]+)");
 
 	public static final int DEFAULT_MAX_RESULTS = 50;
@@ -405,6 +405,7 @@ public class FulltextQuery extends AbstractGisQuery {
     
     public void cleanQueryString(){
 	if (this.query != null){
+     //  this.query.replaceAll("\\*", "");
 	   this.query =  CLEAN_QUERY_PATTERN.matcher(this.query).replaceAll(" ");
 	   this.query = COMMA_PATTERN.matcher(this.query).replaceAll(", ");
 	   this.query =  AND_PATTERN.matcher(this.query).replaceAll("and");
