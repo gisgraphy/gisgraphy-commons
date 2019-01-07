@@ -28,5 +28,5 @@ package com.gisgraphy.domain.valueobject;
  */
 public enum SpeedMode {
 
-    OSM,CALCULATED,DEFAULT;
+    OSM,CALCULATED,DEFAULT,PERSONAL;
 }

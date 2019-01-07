@@ -211,7 +211,7 @@ public class FulltextQuery extends AbstractGisQuery {
 	}
 	this.query = queryString.trim();
 	cleanQueryString();
-	if ("".equals(this.query.trim())){
+	if ("".equals(this.query.trim()) || "-".equals(this.query.trim())){
 		throw new IllegalArgumentException("Query must not be empty");
 	}
 	return this;
